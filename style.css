@@ -1,0 +1,599 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800;900&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+}
+
+a {
+    color: #fff;
+    text-decoration: none;
+}
+
+.navbar {
+    position: fixed;
+    left: 0;
+    top: 0;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    z-index: 100;
+    visibility: hidden;
+    opacity: 0;
+    animation: show-content 1.5s linear forwards;
+    animation-delay: 1.2s;
+}
+
+@keyframes show-content {
+    100% {
+        visibility: visible;
+        opacity: 1;
+    }
+}
+
+.navbar .logo {
+    font-size: 30px;
+    font-weight: 700;
+}
+
+.navbar ul {
+    display: flex;
+}
+
+.navbar ul li {
+    list-style: none;
+    margin-left: 35px;
+}
+
+.navbar ul li a {
+    font-size: 20px;
+    font-weight: 500;
+    transition: .5s;
+    color: white;
+    text-decoration: none;
+}
+
+.navbar ul li a:hover {
+    color: #7cf03d;
+}
+
+.navbar ul li a.active {
+    color: #7cf03d !important;
+}
+
+.home {
+    display: flex;
+    align-items: center;
+    gap: 50px;
+    height: 100vh;
+    padding: 60px 9% 0;
+    color: #fff;
+    visibility: hidden;
+    opacity: 0;
+    animation: show-content 1.5s linear forwards;
+    animation-delay: 1.6s;
+}
+
+.home-info h1 {
+    font-size: 55px;
+}
+
+.home-info h2 {
+    display: inline-block;
+    font-size: 32px;
+    margin-top: -10px;
+}
+
+.home-info h2 span {
+    position: relative;
+    display: inline-block;
+    color: transparet;
+    -webkit-text-stroke: .7px #7cf03d;
+    animation: display-text 16s linear infinite;
+    animation-delay: calc(-4s * var(--i));
+}
+
+@keyframes display-text {
+    25%,100% {
+        display: none;
+    }
+}
+
+.home-info h2::before {
+    content: attr(date-text);
+    position: absolute;
+    width: 0;
+    border-right: 2px solid #7cf03d;
+    color: #7cf03d;
+    white-space: nowrap;
+    overflow: hidden;
+    animation: fill-text 4s linear infinite;
+}
+
+@keyframes fill-text {
+    10%,
+    100% {
+        width: 0;
+    }
+
+    70%,
+    90% {
+        width: 100%;
+    }
+}
+
+.home-info p {
+    font-size: 16;
+    margin: 10px 0 25px;
+}
+
+.home-info .btn-sci {
+    display: flex;
+    align-items: center;
+}
+
+.btn {
+    display: inline-block;
+    padding: 10px 30px;
+    background: #7cf03d;
+    border: 2px solid #7cf03d;
+    border-radius: 40px;
+    box-shadow: 0 0 10px #7cf03d;
+    font-size: 16px;
+    color: #1f242D;
+    font-weight: 600;
+    transition: .5s;
+}
+
+.btn:hover {
+    background: transparent;
+    color: #7cf03d;
+    box-shadow: none;
+}
+
+.home-info .btn-sci .sci {
+    margin-left: 20px;
+}
+
+.home-info .btn-sci .sci a {
+    display: inline-flex;
+    padding: 8px;
+    border: 2px solid #7cf03d;
+    border-radius: 50%;
+    font-size: 20px;
+    color: #7cf03d;
+    margin: 0 8px;
+    transition: .5s;
+}
+
+.home-info .btn-sci .sci a:hover {
+    background: #7cf03d;
+    color: #1f242D;
+    box-shadow: 0 0 10px #7cf03d;
+}
+
+.home-img .img-box {
+    position: relative;
+    width: 32vw;
+    height: 32vw;
+    border-radius: 50%;
+    padding: 5px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+}
+
+.home-img .img-box::before,
+.home-img .img-box::after {
+    content: '';
+    position: absolute;
+    width: 500px;
+    height: 500px;
+    background: conic-gradient(transparent, transparent, transparent, #7cf03d);
+    transform: rotate(0deg);
+    animation: rotate-border 10s linear infinite;
+}
+
+.home-img .img-box::after {
+    animation-delay: -5s;
+}
+
+@keyframes rotate-border {
+    100% {
+        transform: rotate(360deg);
+    }
+}
+
+.home-img .img-box .img-item {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    background: #1f242D;
+    border-radius: 50%;
+    border: .1 solid #1f242D;
+    display: flex;
+    justify-content: center;
+    z-index: 1;
+    overflow: hidden;
+}
+
+.home-img .img-box .img-item img {
+    position: absolute;
+    top: -10px;
+    display: block;
+    width: 85%;
+    object-fit: cover;
+    mix-blend-mode: lighten;
+}
+
+.bars-animation {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    z-index: -1;
+}
+
+.bars-animation .bar {
+    width: 100%;
+    height: 100%;
+    background: #1f242D;
+    transform: translateY(-100%);
+    animation: show-bars .5s ease-in-out forwards;
+    animation-delay: calc(.1s * var(--i));
+}
+
+@keyframes show-bars {
+    100% {
+        transform: translateY(0%);
+    }
+}
+
+section {
+    display: flex;
+    height: 100vh;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    padding: 20px;
+    background-color: #1f242D;
+    color: white;
+}
+.about, .projects, .certificates, .contact {
+    opacity: 0;
+    transform: translateY(50px);
+    transition: opacity 1s ease, transform 1s ease;
+}
+
+
+.projects, .certificates {
+    flex-direction: column;
+    padding: 80px 0;
+}
+
+.projects h2, .certificates h2 {
+    margin-bottom: 40px; /* Add space below heading */
+    width: 100%; /* Ensure full width */
+}
+
+.projects-container, .certificates h2 {
+    display: flex;
+    overflow-x: auto;
+    gap: 30px;
+    padding: 30px;
+    width: 90%;
+    margin: 0 auto;
+    scroll-snap-type: x mandatory;
+    scroll-behavior: smooth;
+}
+
+/* Scrollbar styling for both */
+.projects-container::-webkit-scrollbar, 
+.certificates-container::-webkit-scrollbar {
+    height: 8px;
+}
+
+.projects-container::-webkit-scrollbar-track, 
+.certificates-container::-webkit-scrollbar-track {
+    background: #1f242D;
+}
+
+.projects-container::-webkit-scrollbar-thumb, 
+.certificates-container::-webkit-scrollbar-thumb {
+    background: #7cf03d;
+    border-radius: 4px;
+}
+
+/* ===== Shared Card Styles ===== */
+.project-card, .certificate-card {
+    background: #2c3440;
+    padding: 25px;
+    border-radius: 10px;
+    transition: all 0.3s ease;
+    border: 2px solid transparent;
+    cursor: pointer;
+    flex: 0 0 auto;
+    width: 300px;
+    scroll-snap-align: start;
+}
+
+/* Shared hover effects (keep these) */
+.project-card:hover, .certificate-card:hover {
+    transform: translateY(-5px);
+    border-color: #7cf03d;
+    box-shadow: 0 5px 15px rgba(124, 240, 61, 0.3);
+    background: #323d4a;
+}
+
+.project-card h3, .certificate-card h3 {
+    color: #7cf03d;
+    margin-bottom: 10px;
+}
+
+.project-card a, .certificate-card a {
+    display: inline-block;
+    margin-top: 15px;
+    color: #7cf03d;
+    text-decoration: underline;
+    transition: 0.3s;
+    font-weight: 500;
+}
+
+.project-card:hover a, .certificate-card:hover a {
+    text-shadow: 0 0 8px rgba(124, 240, 61, 0.3);
+}
+
+
+.certificates-container {
+    display: flex;
+    overflow-x: auto;
+    gap: 30px;
+    padding: 30px;
+    width: 90%;
+    margin: 0 auto;
+    scroll-snap-type: x mandatory;
+    scroll-behavior: smooth;
+}
+
+
+.certificate-card p {
+    color: #ddd;
+    font-size: 16px;
+    line-height: 1.5;
+    margin: 8px 0;
+}
+
+.certificate-card {
+    flex: 0 0 auto;
+    width: 300px;
+    background: #2c3440;
+    padding: 20px;
+    border-radius: 10px;
+    scroll-snap-align: start;
+}
+
+
+.certificate-card a {
+    display: inline-block;
+    margin-top: 15px;
+    color: #7cf03d;
+    text-decoration: underline;
+    font-weight: 500;
+}
+
+/* Scrollbar styling */
+.certificates-container::-webkit-scrollbar {
+    height: 8px;
+}
+
+.certificates-container::-webkit-scrollbar-track {
+    background: #1f242D;
+}
+
+.certificates-container::-webkit-scrollbar-thumb {
+    background: #7cf03d;
+    border-radius: 4px;
+}
+
+.contact {
+    flex-direction: column;
+}
+
+.contact-container {
+    width: 80%;
+    max-width: 1000px;
+    display: flex;
+    gap: 50px;
+    align-items: flex-start;
+}
+
+.contact-form {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.form-group {
+    position: relative;
+}
+
+.form-group input,
+.form-group textarea {
+    width: 100%;
+    padding: 15px;
+    background: #2c3440;
+    border: none;
+    border-radius: 5px;
+    color: white;
+    font-size: 16px;
+}
+
+.form-group label {
+    position: absolute;
+    left: 15px;
+    top: 15px;
+    color: #aaa;
+    pointer-events: none;
+    transition: 0.3s;
+}
+
+.form-group input:focus + label,
+.form-group input:valid + label,
+.form-group textarea:focus + label,
+.form-group textarea:valid + label {
+    top: -10px;
+    left: 10px;
+    font-size: 12px;
+    background: #1f242D;
+    padding: 0 5px;
+    color: #7cf03d;
+}
+
+.contact-info {
+    flex: 1;
+    text-align: left;
+}
+
+.contact-info h3 {
+    margin-bottom: 20px;
+    color: #7cf03d;
+}
+
+.contact-info p {
+    margin-bottom: 15px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.contact-social {
+    display: flex;
+    gap: 15px;
+    margin-top: 20px;
+}
+
+.contact-social a {
+    font-size: 24px;
+    color: #7cf03d;
+    transition: 0.3s;
+}
+
+.contact-social a:hover {
+    transform: translateY(-5px);
+}
+
+.about {
+    flex-direction: column;
+    padding: 0 20%;
+    text-align: left;
+}
+
+.about p {
+    font-size: 18px;
+    line-height: 1.6;
+    margin-top: 20px;
+}
+
+.show {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* Hide scrollbar but keep functionality */
+.certificates-container::-webkit-scrollbar {
+    display: none;
+}
+
+/* Breathing animation */
+@keyframes breathe {
+    0%, 100% {
+        transform: scale(1);
+    }
+    50% {
+        transform: scale(1.1);
+    }
+}
+
+.bx-breathe {
+    animation: breathe 2s ease-in-out infinite;
+}
+
+/* Wiggle animation */
+@keyframes wiggle {
+    0%, 100% {
+        transform: rotate(0deg);
+    }
+    25% {
+        transform: rotate(-5deg);
+    }
+    75% {
+        transform: rotate(5deg);
+    }
+}
+
+.bx-wiggle {
+    animation: wiggle 1.5s ease-in-out infinite;
+    display: inline-block; /* Required for transform to work */
+    transform-origin: center bottom; /* Makes it wiggle from the bottom */
+}
+
+/* Tada animation - more playful than bounce */
+@keyframes tada {
+    0% {
+        transform: scale(1);
+    }
+    10%, 20% {
+        transform: scale(0.9) rotate(-3deg);
+    }
+    30%, 50%, 70%, 90% {
+        transform: scale(1.1) rotate(3deg);
+    }
+    40%, 60%, 80% {
+        transform: scale(1.1) rotate(-3deg);
+    }
+    100% {
+        transform: scale(1) rotate(0);
+    }
+}
+
+.bx-tada {
+    animation: tada 1.5s ease infinite;
+    display: inline-block; /* Required for transform */
+    transform-origin: center; /* Rotates from center */
+}
+
+/* WhatsApp Flash Animation */
+@keyframes whatsapp-flash {
+    0%, 100% {
+        transform: scale(1);
+        color: #7cf03d;
+        filter: drop-shadow(0 0 0 rgba(37, 211, 102, 0));
+    }
+    50% {
+        transform: scale(1.1);
+        color: #7cf03d;
+        filter: drop-shadow(0 0 8px rgba(124, 240, 61, 0.8));
+    }
+}
+
+.bxl-whatsapp.bx-flashing {
+    animation: whatsapp-flash 1.8s ease-in-out infinite;
+    display: inline-block;
+}
+
+/* Base WhatsApp styling */
+.bxl-whatsapp {
+    color: #7cf03d;
+    transition: all 0.3s ease;
+}
+
+/* Hover state */
+.bxl-whatsapp:hover {
+    color: #7cf03d;
+    transform: scale(1.1);
+}
