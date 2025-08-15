@@ -59,6 +59,29 @@ document.addEventListener("DOMContentLoaded", () => {
         });
     }
 
+
+    // Mobile menu toggle
+const menuToggle = document.querySelector('.menu-toggle');
+const navMenu = document.querySelector('.navbar ul');
+
+menuToggle.addEventListener('click', () => {
+    navMenu.classList.toggle('active');
+    menuToggle.querySelector('i').classList.toggle('bx-menu');
+    menuToggle.querySelector('i').classList.toggle('bx-x');
+});
+
+// Close menu when clicking a link
+document.querySelectorAll('.navbar ul li a').forEach(link => {
+    link.addEventListener('click', () => {
+        if (window.innerWidth <= 768) {
+            navMenu.classList.remove('active');
+            menuToggle.querySelector('i').classList.add('bx-menu');
+            menuToggle.querySelector('i').classList.remove('bx-x');
+        }
+    });
+});
+
     window.addEventListener("scroll", revealSections);
     revealSections(); // Run initially to show sections on load
 });
+
