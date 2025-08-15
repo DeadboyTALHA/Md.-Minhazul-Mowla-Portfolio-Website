@@ -596,4 +596,171 @@ section {
 .bxl-whatsapp:hover {
     color: #7cf03d;
     transform: scale(1.1);
+
+}
+
+
+
+
+/* ===== Responsive Styles ===== */
+
+/* For tablets (768px and below) */
+@media (max-width: 768px) {
+    .home {
+        flex-direction: column;
+        height: auto;
+        padding: 100px 20px 50px;
+        text-align: center;
+    }
+
+    .home-info {
+        order: 2;
+        margin-top: 30px;
+    }
+
+    .home-img {
+        order: 1;
+    }
+
+    .home-img .img-box {
+        width: 60vw;
+        height: 60vw;
+    }
+
+    .home-info h1 {
+        font-size: 40px;
+    }
+
+    .home-info h2 {
+        font-size: 24px;
+    }
+
+    .btn-sci {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .btn-sci .sci {
+        margin-left: 0;
+        margin-top: 20px;
+    }
+
+    .navbar {
+        padding: 15px 20px;
+    }
+
+    .navbar ul {
+        display: none; /* We'll add a mobile menu later */
+    }
+
+    .about {
+        padding: 0 10%;
+    }
+
+    .contact-container {
+        flex-direction: column;
+        width: 90%;
+    }
+
+    .projects-container, .certificates-container {
+        width: 100%;
+        padding: 15px;
+    }
+
+    .project-card, .certificate-card {
+        width: 250px;
+    }
+}
+
+/* For mobile phones (480px and below) */
+@media (max-width: 480px) {
+    .home-info h1 {
+        font-size: 32px;
+    }
+
+    .home-info h2 {
+        font-size: 20px;
+    }
+
+    .home-info p {
+        font-size: 14px;
+    }
+
+    .btn {
+        padding: 8px 20px;
+        font-size: 14px;
+    }
+
+    .about {
+        padding: 0 5%;
+    }
+
+    .about p {
+        font-size: 16px;
+    }
+
+    .project-card, .certificate-card {
+        width: 220px;
+        padding: 15px;
+    }
+
+    .form-group input, 
+    .form-group textarea {
+        padding: 12px;
+    }
+}
+
+/* Mobile menu toggle */
+.menu-toggle {
+    display: none;
+    font-size: 24px;
+    cursor: pointer;
+    color: white;
+}
+
+@media (max-width: 768px) {
+    .menu-toggle {
+        display: block;
+    }
+
+    .navbar ul {
+        position: fixed;
+        top: 70px;
+        left: -100%;
+        width: 100%;
+        height: calc(100vh - 70px);
+        background: #1f242D;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        transition: 0.5s;
+        z-index: 99;
+    }
+
+    .navbar ul.active {
+        left: 0;
+    }
+
+    .navbar ul li {
+        margin: 15px 0;
+    }
+}
+/* Improve touch targets */
+.btn, .project-card, .certificate-card {
+    min-height: 44px; /* Recommended minimum touch target size */
+}
+
+/* Prevent text size adjustment on mobile */
+html {
+    -webkit-text-size-adjust: 100%;
+}
+
+/* Improve scrolling behavior on iOS */
+body {
+    -webkit-overflow-scrolling: touch;
+}
+
+/* Make sure inputs are readable on mobile */
+input, textarea, select {
+    font-size: 16px !important;
 }
