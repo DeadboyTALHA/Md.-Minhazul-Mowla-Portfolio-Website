@@ -263,102 +263,430 @@ section {
     background-color: #1f242D;
     color: white;
 }
-.about, .projects, .certificates, .contact {
+
+.about, .tech-stack, .experience, .projects, .certificates, .extracurricular, .contact {
     opacity: 0;
     transform: translateY(50px);
     transition: opacity 1s ease, transform 1s ease;
 }
 
+/* ===== About Section ===== */
+.about {
+    flex-direction: column;
+    padding: 0 20%;
+    text-align: left;
+}
 
-.projects, .certificates {
+.about p {
+    font-size: 18px;
+    line-height: 1.6;
+    margin-top: 20px;
+}
+
+.about h2 {
+    color: #7cf03d !important;
+    font-size: 40px;
+    margin-bottom: 30px;
+    width: 100%;
+    text-align: center;
+}
+
+/* ===== Tech Stack Styles ===== */
+.tech-stack {
     flex-direction: column;
     padding: 80px 0;
+    min-height: 100vh;
+    height: auto;
 }
 
-.projects h2, .certificates h2 {
-    margin-bottom: 40px; /* Add space below heading */
-    width: 100%; /* Ensure full width */
+.tech-stack h2 {
+    margin-bottom: 40px;
+    font-size: 40px;
+    color: #7cf03d;
 }
 
-.projects-container, .certificates h2 {
+.tech-container {
     display: flex;
+    flex-direction: column;
+    gap: 40px;
+    width: 90%;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.tech-category {
+    background: #2c3440;
+    padding: 30px;
+    border-radius: 15px;
+    border: 2px solid transparent;
+    transition: all 0.3s ease;
+}
+
+.tech-category:hover {
+    border-color: #7cf03d;
+    transform: translateY(-5px);
+    box-shadow: 0 10px 20px rgba(124, 240, 61, 0.2);
+}
+
+.tech-category h3 {
+    color: #7cf03d;
+    font-size: 24px;
+    margin-bottom: 25px;
+    text-align: center;
+}
+
+.tech-items {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+    gap: 25px;
+    justify-items: center;
+}
+
+.tech-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 15px;
+    padding: 20px;
+    background: #1f242d;
+    border-radius: 10px;
+    transition: all 0.3s ease;
+    width: 100%;
+    max-width: 180px;
+}
+
+.tech-item:hover {
+    transform: scale(1.05);
+    box-shadow: 0 5px 15px rgba(124, 240, 61, 0.3);
+    border: 1px solid #7cf03d;
+}
+
+.tech-item img {
+    width: 80px;
+    height: 80px;
+    object-fit: contain;
+    filter: grayscale(100%);
+    transition: all 0.3s ease;
+}
+
+.tech-item:hover img {
+    filter: grayscale(0%);
+    transform: scale(1.1);
+}
+
+.tech-item p {
+    color: white;
+    font-size: 16px;
+    font-weight: 500;
+    text-align: center;
+}
+
+/* ===== Experience Styles ===== */
+.experience {
+    flex-direction: column;
+    padding: 80px 0;
+    min-height: 100vh;
+    height: auto;
+}
+
+.experience h2 {
+    margin-bottom: 40px;
+    font-size: 40px;
+    color: #7cf03d;
+}
+
+.experience-container {
+    width: 95%;
+    max-width: 1400px;
+    margin: 0 auto;
+    padding: 20px 0;
+}
+
+.experience-columns-wrapper {
+    display: flex;
+    gap: 30px;
+    overflow-x: auto;
+    padding: 20px 10px 30px;
+    scroll-behavior: smooth;
+    scroll-snap-type: x mandatory;
+}
+
+.experience-columns-wrapper::-webkit-scrollbar {
+    height: 6px;
+}
+
+.experience-columns-wrapper::-webkit-scrollbar-track {
+    background: transparent;
+}
+
+.experience-columns-wrapper::-webkit-scrollbar-thumb {
+    background: #7cf03d;
+    border-radius: 3px;
+}
+
+.experience-column {
+    flex: 0 0 400px;
+    display: flex;
+    flex-direction: column;
+    gap: 25px;
+    scroll-snap-align: start;
+}
+
+.column-title {
+    font-size: 24px;
+    font-weight: 700;
+    color: #7cf03d;
+    padding: 15px 20px;
+    background: #2c3440;
+    border-radius: 10px;
+    border-left: 4px solid #7cf03d;
+    text-align: center;
+    position: sticky;
+    top: 0;
+    z-index: 2;
+}
+
+.experience-card {
+    background: #2c3440;
+    padding: 25px;
+    border-radius: 15px;
+    border: 1px solid #3a4555;
+    transition: all 0.3s ease;
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1;
+}
+
+.experience-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 25px rgba(124, 240, 61, 0.2);
+    border-color: #7cf03d;
+}
+
+.experience-card h3 {
+    color: white;
+    font-size: 20px;
+    margin-bottom: 15px;
+    border-bottom: 2px solid #7cf03d;
+    padding-bottom: 10px;
+}
+
+.exp-detail {
+    color: #ddd;
+    font-size: 16px;
+    margin-bottom: 8px;
+    line-height: 1.4;
+}
+
+.exp-detail span {
+    color: #7cf03d;
+    font-weight: 600;
+    margin-right: 8px;
+}
+
+.description {
+    margin-top: 20px;
+    padding-top: 20px;
+    border-top: 1px solid #3a4555;
+    overflow-y: auto;
+    max-height: 300px;
+    flex-grow: 1;
+    padding-right: 10px;
+}
+
+.description::-webkit-scrollbar {
+    width: 6px;
+}
+
+.description::-webkit-scrollbar-track {
+    background: transparent;
+}
+
+.description::-webkit-scrollbar-thumb {
+    background: #7cf03d;
+    border-radius: 10px;
+}
+
+.description p {
+    color: #bbb;
+    font-size: 15px;
+    line-height: 1.6;
+    margin-bottom: 12px;
+    padding-left: 15px;
+    position: relative;
+}
+
+.description p:before {
+    content: "•";
+    color: #7cf03d;
+    position: absolute;
+    left: 0;
+    font-weight: bold;
+}
+
+/* ===== Projects Section ===== */
+.projects {
+    flex-direction: column;
+    padding: 80px 0;
+    min-height: 100vh;
+    height: auto;
+}
+
+.projects h2 {
+    margin-bottom: 40px;
+    font-size: 40px;
+    color: #7cf03d;
+    width: 100%;
+    text-align: center;
+}
+
+.projects-container {
+    display: flex;
+    flex-wrap: nowrap;
     overflow-x: auto;
     gap: 30px;
-    padding: 30px;
-    width: 90%;
+    padding: 30px 20px 40px;
+    width: 95%;
     margin: 0 auto;
     scroll-snap-type: x mandatory;
     scroll-behavior: smooth;
 }
 
-/* Scrollbar styling for both */
-.projects-container::-webkit-scrollbar, 
-.certificates-container::-webkit-scrollbar {
-    height: 8px;
+/* Clean scrollbar for projects */
+.projects-container::-webkit-scrollbar {
+    height: 6px;
 }
 
-.projects-container::-webkit-scrollbar-track, 
-.certificates-container::-webkit-scrollbar-track {
-    background: #1f242D;
+.projects-container::-webkit-scrollbar-track {
+    background: transparent;
 }
 
-.projects-container::-webkit-scrollbar-thumb, 
-.certificates-container::-webkit-scrollbar-thumb {
+.projects-container::-webkit-scrollbar-thumb {
     background: #7cf03d;
-    border-radius: 4px;
+    border-radius: 3px;
 }
 
-/* ===== Shared Card Styles ===== */
-.project-card, .certificate-card {
+.project-card {
+    flex: 0 0 320px;
     background: #2c3440;
     padding: 25px;
-    border-radius: 10px;
+    border-radius: 15px;
+    border: 1px solid transparent;
     transition: all 0.3s ease;
-    border: 2px solid transparent;
-    cursor: pointer;
-    flex: 0 0 auto;
-    width: 300px;
     scroll-snap-align: start;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
 }
 
-/* Shared hover effects (keep these) */
-.project-card:hover, .certificate-card:hover {
+.project-card:hover {
     transform: translateY(-5px);
     border-color: #7cf03d;
-    box-shadow: 0 5px 15px rgba(124, 240, 61, 0.3);
+    box-shadow: 0 10px 25px rgba(124, 240, 61, 0.2);
     background: #323d4a;
 }
 
-.project-card h3, .certificate-card h3 {
+.project-card h3 {
     color: #7cf03d;
-    margin-bottom: 10px;
+    margin-bottom: 15px;
+    font-size: 20px;
+    line-height: 1.4;
+    border-bottom: 1px solid #3a4555;
+    padding-bottom: 10px;
 }
 
-.project-card a, .certificate-card a {
+.project-card p {
+    color: #ddd;
+    font-size: 16px;
+    line-height: 1.5;
+    margin: 8px 0;
+}
+
+.project-card a {
     display: inline-block;
     margin-top: 15px;
     color: #7cf03d;
     text-decoration: underline;
-    transition: 0.3s;
     font-weight: 500;
+    transition: 0.3s;
 }
 
-.project-card:hover a, .certificate-card:hover a {
+.project-card a:hover {
     text-shadow: 0 0 8px rgba(124, 240, 61, 0.3);
+    transform: translateX(3px);
 }
 
+/* ===== Certificates Section - EXACT COPY OF PROJECTS ===== */
+.certificates {
+    flex-direction: column;
+    padding: 80px 0;
+    min-height: 100vh;
+    height: auto;
+}
+
+.certificates h2 {
+    margin-bottom: 40px;
+    font-size: 40px;
+    color: #7cf03d;
+    width: 100%;
+    text-align: center;
+}
 
 .certificates-container {
     display: flex;
+    flex-wrap: nowrap;
     overflow-x: auto;
     gap: 30px;
-    padding: 30px;
-    width: 90%;
+    padding: 30px 20px 40px;
+    width: 95%;
     margin: 0 auto;
     scroll-snap-type: x mandatory;
     scroll-behavior: smooth;
 }
 
+/* Clean scrollbar for certificates */
+.certificates-container::-webkit-scrollbar {
+    height: 6px;
+}
+
+.certificates-container::-webkit-scrollbar-track {
+    background: transparent;
+}
+
+.certificates-container::-webkit-scrollbar-thumb {
+    background: #7cf03d;
+    border-radius: 3px;
+}
+
+/* CERTIFICATE CARD - EXACT COPY OF PROJECT CARD (WITH BUTTON STYLE) */
+.certificate-card {
+    flex: 0 0 320px;
+    background: #2c3440;
+    padding: 25px;
+    border-radius: 15px;
+    border: 1px solid transparent;
+    transition: all 0.3s ease;
+    scroll-snap-align: start;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.certificate-card:hover {
+    transform: translateY(-5px);
+    border-color: #7cf03d;
+    box-shadow: 0 10px 25px rgba(124, 240, 61, 0.2);
+    background: #323d4a;
+}
+
+.certificate-card h3 {
+    color: #7cf03d;
+    margin-bottom: 15px;
+    font-size: 20px;
+    line-height: 1.4;
+    border-bottom: 1px solid #3a4555;
+    padding-bottom: 10px;
+}
 
 .certificate-card p {
     color: #ddd;
@@ -367,40 +695,168 @@ section {
     margin: 8px 0;
 }
 
-.certificate-card {
-    flex: 0 0 auto;
-    width: 300px;
-    background: #2c3440;
-    padding: 20px;
-    border-radius: 10px;
-    scroll-snap-align: start;
-}
-
-
+/* ONLY DIFFERENCE: Button style instead of underlined link */
 .certificate-card a {
     display: inline-block;
     margin-top: 15px;
+    padding: 10px 20px;
+    background: rgba(124, 240, 61, 0.1);
     color: #7cf03d;
-    text-decoration: underline;
+    text-decoration: none;
     font-weight: 500;
+    border-radius: 5px;
+    border: 1px solid rgba(124, 240, 61, 0.3);
+    transition: 0.3s;
+    text-align: center;
 }
 
-/* Scrollbar styling */
-.certificates-container::-webkit-scrollbar {
-    height: 8px;
+.certificate-card a:hover {
+    background: rgba(124, 240, 61, 0.2);
+    border-color: #7cf03d;
+    transform: translateY(-2px);
+    box-shadow: 0 5px 15px rgba(124, 240, 61, 0.3);
 }
 
-.certificates-container::-webkit-scrollbar-track {
-    background: #1f242D;
+/* ===== Extracurricular Activities Styles ===== */
+.extracurricular {
+    flex-direction: column;
+    padding: 80px 0;
+    min-height: 100vh;
+    height: auto;
 }
 
-.certificates-container::-webkit-scrollbar-thumb {
+.extracurricular h2 {
+    margin-bottom: 40px;
+    font-size: 40px;
+    color: #7cf03d;
+}
+
+.extracurricular-container {
+    width: 95%;
+    max-width: 1400px;
+    margin: 0 auto;
+    padding: 20px 0;
+}
+
+.extracurricular-columns-wrapper {
+    display: flex;
+    gap: 30px;
+    overflow-x: auto;
+    padding: 20px 10px 30px;
+    scroll-behavior: smooth;
+    scroll-snap-type: x mandatory;
+}
+
+.extracurricular-columns-wrapper::-webkit-scrollbar {
+    height: 6px;
+}
+
+.extracurricular-columns-wrapper::-webkit-scrollbar-track {
+    background: transparent;
+}
+
+.extracurricular-columns-wrapper::-webkit-scrollbar-thumb {
     background: #7cf03d;
-    border-radius: 4px;
+    border-radius: 3px;
 }
 
+.extracurricular-column {
+    flex: 0 0 400px;
+    display: flex;
+    flex-direction: column;
+    gap: 25px;
+    scroll-snap-align: start;
+}
+
+.activity-card {
+    background: #2c3440;
+    padding: 25px;
+    border-radius: 15px;
+    border: 1px solid #3a4555;
+    transition: all 0.3s ease;
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1;
+}
+
+.activity-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 25px rgba(124, 240, 61, 0.2);
+    border-color: #7cf03d;
+}
+
+.activity-card h3 {
+    color: white;
+    font-size: 20px;
+    margin-bottom: 15px;
+    border-bottom: 2px solid #7cf03d;
+    padding-bottom: 10px;
+}
+
+.activity-detail {
+    color: #ddd;
+    font-size: 16px;
+    margin-bottom: 8px;
+    line-height: 1.4;
+}
+
+.activity-detail span {
+    color: #7cf03d;
+    font-weight: 600;
+    margin-right: 8px;
+}
+
+/* ===== View Button Styles for Extracurricular ===== */
+.activity-card {
+    position: relative; /* Add this for absolute positioning if needed */
+}
+
+.activity-card .view-btn {
+    display: block;
+    margin-top: 20px auto 0;
+    padding: 8px 20px;
+    background: rgba(124, 240, 61, 0.1);
+    color: #7cf03d;
+    text-decoration: none;
+    font-weight: 500;
+    border-radius: 5px;
+    border: 1px solid rgba(124, 240, 61, 0.3);
+    transition: 0.3s;
+    text-align: center;
+    width: 100px; /* Fixed width */
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.activity-card .view-btn:hover {
+    background: rgba(124, 240, 61, 0.2);
+    border-color: #7cf03d;
+    transform: translateY(-2px);
+    box-shadow: 0 5px 15px rgba(124, 240, 61, 0.3);
+}
+
+/* Responsive for View Button */
+@media (max-width: 768px) {
+    .activity-card .view-btn {
+        padding: 7px 16px;
+        font-size: 14px;
+    }
+}
+
+@media (max-width: 480px) {
+    .activity-card .view-btn {
+        padding: 6px 14px;
+        font-size: 13px;
+    }
+}
+
+/* ===== Contact Section ===== */
 .contact {
     flex-direction: column;
+}
+
+.contact h2 {
+    color: #7cf03d !important;
 }
 
 .contact-container {
@@ -487,26 +943,9 @@ section {
     transform: translateY(-5px);
 }
 
-.about {
-    flex-direction: column;
-    padding: 0 20%;
-    text-align: left;
-}
-
-.about p {
-    font-size: 18px;
-    line-height: 1.6;
-    margin-top: 20px;
-}
-
 .show {
     opacity: 1;
     transform: translateY(0);
-}
-
-/* Hide scrollbar but keep functionality */
-.certificates-container::-webkit-scrollbar {
-    display: none;
 }
 
 /* Breathing animation */
@@ -538,11 +977,11 @@ section {
 
 .bx-wiggle {
     animation: wiggle 1.5s ease-in-out infinite;
-    display: inline-block; /* Required for transform to work */
-    transform-origin: center bottom; /* Makes it wiggle from the bottom */
+    display: inline-block;
+    transform-origin: center bottom;
 }
 
-/* Tada animation - more playful than bounce */
+/* Tada animation */
 @keyframes tada {
     0% {
         transform: scale(1);
@@ -563,8 +1002,8 @@ section {
 
 .bx-tada {
     animation: tada 1.5s ease infinite;
-    display: inline-block; /* Required for transform */
-    transform-origin: center; /* Rotates from center */
+    display: inline-block;
+    transform-origin: center;
 }
 
 /* WhatsApp Flash Animation */
@@ -596,11 +1035,7 @@ section {
 .bxl-whatsapp:hover {
     color: #7cf03d;
     transform: scale(1.1);
-
 }
-
-
-
 
 /* ===== Responsive Styles ===== */
 
@@ -650,7 +1085,7 @@ section {
     }
 
     .navbar ul {
-        display: none; /* We'll add a mobile menu later */
+        display: none;
     }
 
     .about {
@@ -662,13 +1097,34 @@ section {
         width: 90%;
     }
 
-    .projects-container, .certificates-container {
+    .projects-container,
+    .certificates-container {
         width: 100%;
         padding: 15px;
     }
 
-    .project-card, .certificate-card {
-        width: 250px;
+    .project-card,
+    .certificate-card {
+        flex: 0 0 280px;
+    }
+    
+    .experience-column,
+    .extracurricular-column {
+        flex: 0 0 350px;
+    }
+    
+    .tech-items {
+        grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+        gap: 15px;
+    }
+    
+    .tech-item img {
+        width: 60px;
+        height: 60px;
+    }
+    
+    .tech-item p {
+        font-size: 14px;
     }
 }
 
@@ -699,9 +1155,25 @@ section {
         font-size: 16px;
     }
 
-    .project-card, .certificate-card {
-        width: 220px;
+    .project-card,
+    .certificate-card {
+        flex: 0 0 250px;
         padding: 15px;
+    }
+    
+    .experience-column,
+    .extracurricular-column {
+        flex: 0 0 300px;
+    }
+    
+    .experience-card,
+    .activity-card {
+        padding: 15px;
+    }
+    
+    .column-title {
+        font-size: 18px;
+        padding: 12px 15px;
     }
 
     .form-group input, 
@@ -745,9 +1217,10 @@ section {
         margin: 15px 0;
     }
 }
+
 /* Improve touch targets */
 .btn, .project-card, .certificate-card {
-    min-height: 44px; /* Recommended minimum touch target size */
+    min-height: 44px;
 }
 
 /* Prevent text size adjustment on mobile */
