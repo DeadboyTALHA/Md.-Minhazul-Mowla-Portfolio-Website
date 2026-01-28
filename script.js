@@ -59,8 +59,12 @@ document.addEventListener("DOMContentLoaded", () => {
         });
     }
 
+    window.addEventListener("scroll", revealSections);
+    revealSections(); // Run initially to show sections on load
+});
 
-    // Mobile menu toggle
+
+// Mobile menu toggle
 const menuToggle = document.querySelector('.menu-toggle');
 const navMenu = document.querySelector('.navbar ul');
 
@@ -80,8 +84,3 @@ document.querySelectorAll('.navbar ul li a').forEach(link => {
         }
     });
 });
-
-    window.addEventListener("scroll", revealSections);
-    revealSections(); // Run initially to show sections on load
-});
-
