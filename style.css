@@ -273,22 +273,113 @@ section {
 /* ===== About Section ===== */
 .about {
     flex-direction: column;
-    padding: 0 20%;
-    text-align: left;
+    padding: 80px 0;
+    min-height: 100vh;
+    height: auto;
+    overflow-y: auto;
 }
 
-.about p {
-    font-size: 18px;
-    line-height: 1.6;
-    margin-top: 20px;
+.about-container {
+    width: 80%;
+    max-width: 1000px;
+    margin: 0 auto;
+    text-align: center;
 }
 
 .about h2 {
-    color: #7cf03d !important;
+    color: #7cf03d;
     font-size: 40px;
-    margin-bottom: 30px;
+    margin-bottom: 40px;
     width: 100%;
     text-align: center;
+}
+
+.about-content {
+    text-align: left;
+    max-height: 70vh;
+    overflow-y: auto;
+    padding: 20px;
+    padding-right: 30px;
+    background: rgba(44, 52, 64, 0.5);
+    border-radius: 15px;
+    scrollbar-width: thin;
+    scrollbar-color: #7cf03d #2c3440;
+}
+
+/* Custom scrollbar for about content */
+.about-content::-webkit-scrollbar {
+    width: 8px;
+}
+
+.about-content::-webkit-scrollbar-track {
+    background: #2c3440;
+    border-radius: 10px;
+}
+
+.about-content::-webkit-scrollbar-thumb {
+    background: #7cf03d;
+    border-radius: 10px;
+}
+
+.about-content::-webkit-scrollbar-thumb:hover {
+    background: #5cd020;
+}
+
+.about-content p {
+    font-size: 18px;
+    line-height: 1.8;
+    margin-bottom: 25px;
+    color: #ddd;
+}
+
+.about-content strong {
+    color: #7cf03d;
+}
+
+/* For tablets */
+@media (max-width: 768px) {
+    .about-container {
+        width: 90%;
+    }
+    
+    .about-content {
+        max-height: 65vh;
+        padding: 15px;
+        padding-right: 20px;
+    }
+    
+    .about-content p {
+        font-size: 16px;
+        line-height: 1.6;
+        margin-bottom: 20px;
+    }
+    
+    .about h2 {
+        font-size: 32px;
+    }
+}
+
+/* For mobile phones */
+@media (max-width: 480px) {
+    .about-container {
+        width: 95%;
+    }
+    
+    .about-content {
+        max-height: 60vh;
+        padding: 12px;
+        padding-right: 15px;
+    }
+    
+    .about-content p {
+        font-size: 14px;
+        line-height: 1.5;
+        margin-bottom: 15px;
+    }
+    
+    .about h2 {
+        font-size: 28px;
+    }
 }
 
 /* ===== Tech Stack Styles ===== */
