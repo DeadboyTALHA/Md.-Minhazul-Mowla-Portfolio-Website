@@ -306,7 +306,6 @@ section {
     scrollbar-color: #7cf03d #2c3440;
 }
 
-/* Custom scrollbar for about content */
 .about-content::-webkit-scrollbar {
     width: 8px;
 }
@@ -336,7 +335,6 @@ section {
     color: #7cf03d;
 }
 
-/* For tablets */
 @media (max-width: 768px) {
     .about-container {
         width: 90%;
@@ -359,7 +357,6 @@ section {
     }
 }
 
-/* For mobile phones */
 @media (max-width: 480px) {
     .about-container {
         width: 95%;
@@ -470,6 +467,22 @@ section {
     font-size: 16px;
     font-weight: 500;
     text-align: center;
+}
+
+@media (max-width: 768px) {
+    .tech-items {
+        grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+        gap: 15px;
+    }
+    
+    .tech-item img {
+        width: 60px;
+        height: 60px;
+    }
+    
+    .tech-item p {
+        font-size: 14px;
+    }
 }
 
 /* ===== Experience Styles ===== */
@@ -615,6 +628,47 @@ section {
     font-weight: bold;
 }
 
+@media (max-width: 768px) {
+    .experience-column {
+        flex: 0 0 350px;
+    }
+    
+    .experience-card {
+        padding: 20px;
+    }
+    
+    .column-title {
+        font-size: 20px;
+        padding: 12px 15px;
+    }
+    
+    .experience-card h3 {
+        font-size: 18px;
+    }
+    
+    .exp-detail {
+        font-size: 14px;
+    }
+}
+
+@media (max-width: 480px) {
+    .experience-column {
+        flex: 0 0 300px;
+    }
+    
+    .experience-card {
+        padding: 15px;
+    }
+    
+    .column-title {
+        font-size: 18px;
+    }
+    
+    .description p {
+        font-size: 14px;
+    }
+}
+
 /* ===== Projects Section ===== */
 .projects {
     flex-direction: column;
@@ -639,20 +693,41 @@ section {
     padding: 30px 20px 40px;
     width: 95%;
     margin: 0 auto;
-    scroll-snap-type: x mandatory;
-    scroll-behavior: smooth;
+    scroll-snap-type: none;
+    scroll-behavior: auto;
+    cursor: grab;
 }
 
-/* Clean scrollbar for projects */
+.projects-container:active {
+    cursor: grabbing;
+}
+
+/* Hide scrollbar by default */
+.projects-container {
+    scrollbar-width: none;
+    -ms-overflow-style: none;
+}
+
 .projects-container::-webkit-scrollbar {
-    height: 6px;
+    height: 0px;
+    display: none;
 }
 
-.projects-container::-webkit-scrollbar-track {
+/* Show scrollbar ONLY on hover - Original green style */
+.projects-container:hover {
+    scrollbar-width: thin;
+}
+
+.projects-container:hover::-webkit-scrollbar {
+    height: 6px;
+    display: block;
+}
+
+.projects-container:hover::-webkit-scrollbar-track {
     background: transparent;
 }
 
-.projects-container::-webkit-scrollbar-thumb {
+.projects-container:hover::-webkit-scrollbar-thumb {
     background: #7cf03d;
     border-radius: 3px;
 }
@@ -707,7 +782,7 @@ section {
     transform: translateX(3px);
 }
 
-/* ===== Certificates Section - EXACT COPY OF PROJECTS ===== */
+/* ===== Certificates Section ===== */
 .certificates {
     flex-direction: column;
     padding: 80px 0;
@@ -731,25 +806,45 @@ section {
     padding: 30px 20px 40px;
     width: 95%;
     margin: 0 auto;
-    scroll-snap-type: x mandatory;
-    scroll-behavior: smooth;
+    scroll-snap-type: none;
+    scroll-behavior: auto;
+    cursor: grab;
 }
 
-/* Clean scrollbar for certificates */
+.certificates-container:active {
+    cursor: grabbing;
+}
+
+/* Hide scrollbar by default */
+.certificates-container {
+    scrollbar-width: none;
+    -ms-overflow-style: none;
+}
+
 .certificates-container::-webkit-scrollbar {
-    height: 6px;
+    height: 0px;
+    display: none;
 }
 
-.certificates-container::-webkit-scrollbar-track {
+/* Show scrollbar ONLY on hover - Original green style */
+.certificates-container:hover {
+    scrollbar-width: thin;
+}
+
+.certificates-container:hover::-webkit-scrollbar {
+    height: 6px;
+    display: block;
+}
+
+.certificates-container:hover::-webkit-scrollbar-track {
     background: transparent;
 }
 
-.certificates-container::-webkit-scrollbar-thumb {
+.certificates-container:hover::-webkit-scrollbar-thumb {
     background: #7cf03d;
     border-radius: 3px;
 }
 
-/* CERTIFICATE CARD - EXACT COPY OF PROJECT CARD (WITH BUTTON STYLE) */
 .certificate-card {
     flex: 0 0 320px;
     background: #2c3440;
@@ -786,7 +881,6 @@ section {
     margin: 8px 0;
 }
 
-/* ONLY DIFFERENCE: Button style instead of underlined link */
 .certificate-card a {
     display: inline-block;
     margin-top: 15px;
@@ -897,14 +991,9 @@ section {
     margin-right: 8px;
 }
 
-/* ===== View Button Styles for Extracurricular ===== */
-.activity-card {
-    position: relative; /* Add this for absolute positioning if needed */
-}
-
 .activity-card .view-btn {
     display: block;
-    margin-top: 20px auto 0;
+    margin-top: 20px;
     padding: 8px 20px;
     background: rgba(124, 240, 61, 0.1);
     color: #7cf03d;
@@ -914,7 +1003,7 @@ section {
     border: 1px solid rgba(124, 240, 61, 0.3);
     transition: 0.3s;
     text-align: center;
-    width: 100px; /* Fixed width */
+    width: 100px;
     margin-left: auto;
     margin-right: auto;
 }
@@ -926,8 +1015,23 @@ section {
     box-shadow: 0 5px 15px rgba(124, 240, 61, 0.3);
 }
 
-/* Responsive for View Button */
 @media (max-width: 768px) {
+    .extracurricular-column {
+        flex: 0 0 350px;
+    }
+    
+    .activity-card {
+        padding: 20px;
+    }
+    
+    .activity-card h3 {
+        font-size: 18px;
+    }
+    
+    .activity-detail {
+        font-size: 14px;
+    }
+    
     .activity-card .view-btn {
         padding: 7px 16px;
         font-size: 14px;
@@ -935,6 +1039,14 @@ section {
 }
 
 @media (max-width: 480px) {
+    .extracurricular-column {
+        flex: 0 0 300px;
+    }
+    
+    .activity-card {
+        padding: 15px;
+    }
+    
     .activity-card .view-btn {
         padding: 6px 14px;
         font-size: 13px;
@@ -1039,31 +1151,27 @@ section {
     transform: translateY(0);
 }
 
-/* Breathing animation */
+@media (max-width: 768px) {
+    .contact-container {
+        flex-direction: column;
+        width: 90%;
+    }
+}
+
+/* ===== Animations ===== */
 @keyframes breathe {
-    0%, 100% {
-        transform: scale(1);
-    }
-    50% {
-        transform: scale(1.1);
-    }
+    0%, 100% { transform: scale(1); }
+    50% { transform: scale(1.1); }
 }
 
 .bx-breathe {
     animation: breathe 2s ease-in-out infinite;
 }
 
-/* Wiggle animation */
 @keyframes wiggle {
-    0%, 100% {
-        transform: rotate(0deg);
-    }
-    25% {
-        transform: rotate(-5deg);
-    }
-    75% {
-        transform: rotate(5deg);
-    }
+    0%, 100% { transform: rotate(0deg); }
+    25% { transform: rotate(-5deg); }
+    75% { transform: rotate(5deg); }
 }
 
 .bx-wiggle {
@@ -1072,23 +1180,12 @@ section {
     transform-origin: center bottom;
 }
 
-/* Tada animation */
 @keyframes tada {
-    0% {
-        transform: scale(1);
-    }
-    10%, 20% {
-        transform: scale(0.9) rotate(-3deg);
-    }
-    30%, 50%, 70%, 90% {
-        transform: scale(1.1) rotate(3deg);
-    }
-    40%, 60%, 80% {
-        transform: scale(1.1) rotate(-3deg);
-    }
-    100% {
-        transform: scale(1) rotate(0);
-    }
+    0% { transform: scale(1); }
+    10%, 20% { transform: scale(0.9) rotate(-3deg); }
+    30%, 50%, 70%, 90% { transform: scale(1.1) rotate(3deg); }
+    40%, 60%, 80% { transform: scale(1.1) rotate(-3deg); }
+    100% { transform: scale(1) rotate(0); }
 }
 
 .bx-tada {
@@ -1097,7 +1194,6 @@ section {
     transform-origin: center;
 }
 
-/* WhatsApp Flash Animation */
 @keyframes whatsapp-flash {
     0%, 100% {
         transform: scale(1);
@@ -1116,21 +1212,17 @@ section {
     display: inline-block;
 }
 
-/* Base WhatsApp styling */
 .bxl-whatsapp {
     color: #7cf03d;
     transition: all 0.3s ease;
 }
 
-/* Hover state */
 .bxl-whatsapp:hover {
     color: #7cf03d;
     transform: scale(1.1);
 }
 
 /* ===== Responsive Styles ===== */
-
-/* For tablets (768px and below) */
 @media (max-width: 768px) {
     .home {
         flex-direction: column;
@@ -1179,15 +1271,6 @@ section {
         display: none;
     }
 
-    .about {
-        padding: 0 10%;
-    }
-
-    .contact-container {
-        flex-direction: column;
-        width: 90%;
-    }
-
     .projects-container,
     .certificates-container {
         width: 100%;
@@ -1198,28 +1281,8 @@ section {
     .certificate-card {
         flex: 0 0 280px;
     }
-    
-    .experience-column,
-    .extracurricular-column {
-        flex: 0 0 350px;
-    }
-    
-    .tech-items {
-        grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
-        gap: 15px;
-    }
-    
-    .tech-item img {
-        width: 60px;
-        height: 60px;
-    }
-    
-    .tech-item p {
-        font-size: 14px;
-    }
 }
 
-/* For mobile phones (480px and below) */
 @media (max-width: 480px) {
     .home-info h1 {
         font-size: 32px;
@@ -1238,33 +1301,10 @@ section {
         font-size: 14px;
     }
 
-    .about {
-        padding: 0 5%;
-    }
-
-    .about p {
-        font-size: 16px;
-    }
-
     .project-card,
     .certificate-card {
         flex: 0 0 250px;
         padding: 15px;
-    }
-    
-    .experience-column,
-    .extracurricular-column {
-        flex: 0 0 300px;
-    }
-    
-    .experience-card,
-    .activity-card {
-        padding: 15px;
-    }
-    
-    .column-title {
-        font-size: 18px;
-        padding: 12px 15px;
     }
 
     .form-group input, 
@@ -1327,4 +1367,55 @@ body {
 /* Make sure inputs are readable on mobile */
 input, textarea, select {
     font-size: 16px !important;
+}
+
+/* EDGE/CHROME GREEN SCROLLBAR - ONLY ON HOVER */
+.projects-container,
+.certificates-container {
+    overflow-y: hidden !important;
+    overflow-x: auto !important;
+}
+
+/* Hide scrollbar by default */
+.projects-container,
+.certificates-container {
+    scrollbar-width: none !important;
+    -ms-overflow-style: none !important;
+}
+
+.projects-container::-webkit-scrollbar,
+.certificates-container::-webkit-scrollbar {
+    width: 0 !important;
+    height: 0 !important;
+    background: transparent !important;
+}
+
+/* Show green scrollbar on hover */
+.projects-container:hover,
+.certificates-container:hover {
+    scrollbar-width: thin !important;
+    scrollbar-color: #7cf03d transparent !important;
+}
+
+.projects-container:hover::-webkit-scrollbar,
+.certificates-container:hover::-webkit-scrollbar {
+    width: 6px !important;
+    height: 6px !important;
+    background: transparent !important;
+}
+
+.projects-container:hover::-webkit-scrollbar-track,
+.certificates-container:hover::-webkit-scrollbar-track {
+    background: transparent !important;
+}
+
+.projects-container:hover::-webkit-scrollbar-thumb,
+.certificates-container:hover::-webkit-scrollbar-thumb {
+    background: #7cf03d !important;
+    border-radius: 3px !important;
+}
+
+.projects-container:hover::-webkit-scrollbar-thumb:hover,
+.certificates-container:hover::-webkit-scrollbar-thumb:hover {
+    background: #5cd020 !important;
 }
